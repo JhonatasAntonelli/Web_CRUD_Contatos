@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Web_CRUD_Contatos.Models.Contato>
+
+@{
+    ViewData["Title"] = "Minha Lista de Contatos";
+}
+<h1>Minha Lista de Contatos</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>              
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.id">Edit</a>                 
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Del</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a class="btn btn-primary" asp-action="Download">Download</a>
+    <a class="btn btn-success" asp-action="Create">Add Item</a>    
+</p>
