@@ -63,17 +63,7 @@ namespace Web_CRUD_Contatos.Controllers
             }
             return View(contato);
         }
-        public async Task<IActionResult> Download(DataGridView dgv)
-        {
-            bool exported = false;
-
-            List<string> lines = new List<string>();
-
-            DataGridViewColumnCollection
-
-
-            return exported;
-        }
+        
         // GET: Contatos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
