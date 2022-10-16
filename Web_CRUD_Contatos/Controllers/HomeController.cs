@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.Text;
 using Web_CRUD_Contatos.Models;
 
 namespace Web_CRUD_Contatos.Controllers
-{
+{    
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -17,6 +19,7 @@ namespace Web_CRUD_Contatos.Controllers
 
         public IActionResult Index()
         {
+           
             return View();
         }
 

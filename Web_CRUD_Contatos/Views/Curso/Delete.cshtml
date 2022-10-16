@@ -1,0 +1,40 @@
+﻿@model Web_CRUD_Contatos.Models.Curso
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Apagar Curso</h1>
+
+<h3>Você tem certeza que quer apagar esse curso?</h3>
+<div>
+    <h4>Curso</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CPF)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a class="btn btn-secondary" asp-controller="Curso" asp-action="Index">Voltar</a>
+        
+    </form>
+</div>

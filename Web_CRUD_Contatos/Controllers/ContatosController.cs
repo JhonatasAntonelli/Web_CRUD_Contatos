@@ -1,10 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using iTextSharp.text.xml;
+using iTextSharp.tool.xml.html;
+using MessagePack;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Plugins;
+using Org.BouncyCastle.Asn1.Cmp;
 using Web_CRUD_Contatos.Models;
 
 namespace Web_CRUD_Contatos.Controllers
@@ -54,16 +62,38 @@ namespace Web_CRUD_Contatos.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id,Nome,CPF,DataNascimento")] Contato contato)
-        {
-            if (ModelState.IsValid)
+        {               
+
+            ValidaCPF validaCPF = new ValidaCPF();
+
+            try
             {
-                _context.Add(contato);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid & validaCPF.IsCpf(contato.CPF))
+                {
+                    _context.Add(contato);
+                    await _context.SaveChangesAsync();                   
+                
+                    TempData["MessagemSucessoAdd"] = "Aluno adicionado com sucesso!!";
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    TempData["MessagemErrorCPF"] = "CPF invalido!!";
+                    return RedirectToAction(nameof(Create));
+                }
+
+            }
+            catch(System.Exception ex)
+            {
+                TempData["MessagemErrorCPF"] = "CPF invalido!!";
+                return RedirectToAction(nameof(Create));
+
             }
             return View(contato);
         }
-        
+
+ 
+
         // GET: Contatos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

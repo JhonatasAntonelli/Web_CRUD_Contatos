@@ -10,5 +10,9 @@ namespace Web_CRUD_Contatos.Models
 
         }
         public DbSet<Contato> Contato { get; set; }
+
+        public DbSet<Curso> Curso { get; set; }
+
+        public DbSet<Matriculas> Matriculas { get; set; }
     }
 }

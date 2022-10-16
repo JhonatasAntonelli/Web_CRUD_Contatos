@@ -1,20 +1,12 @@
-﻿@model IEnumerable<Web_CRUD_Contatos.Models.Contato>
+﻿@model IEnumerable<Web_CRUD_Contatos.Models.Curso>
 
 @{
-    ViewData["Title"] = "Minha Lista de Contatos";
+    ViewData["Title"] = "Minha Lista de Cursos";
 }
-<h1>Minha Lista de Contatos</h1>
-
-@if (TempData["MessagemSucessoAdd"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        <button type= "button" class = "btn btn-danger btn-sm close-alert" arial-label ="Close">x</button>
-        @TempData["MessagemSucessoAdd"]
-    </div>
-}
+<h1>Minha Lista de Cursos</h1>
 
 
-<table class="table" id = "table-contatos">
+<table class="table" id="table-cursos">
     <thead>
         <tr>
             <th>
@@ -50,8 +42,6 @@
     </tbody>
 </table>
 
-
-
-<p>   
+<p>    
     <a class="btn btn-success" asp-action="Create">Add Item</a>    
 </p>

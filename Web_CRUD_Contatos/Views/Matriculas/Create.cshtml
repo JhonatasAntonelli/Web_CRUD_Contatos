@@ -1,0 +1,40 @@
+﻿@model Web_CRUD_Contatos.Models.Matriculas
+
+
+@{
+    ViewData["Title"] = "Create";  
+}
+<h4>Matricular Um Aluno</h4>
+<hr />
+<div class="row">    
+        <form asp-action="Create">           
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="CPF" class="control-label"></label>
+                <select input asp-for="CPF" class="form-select" asp-items="Model.ContatosSelectListCPF"></select>                   
+                <span asp-validation-for="CPF" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <select input asp-for="Nome" class="form-select" asp-items="Model.ContatosSelectListNome"></select>                
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="NomeCurso" class="control-label"></label>
+                <select input asp-for="NomeCurso" class="form-select" asp-items="Model.ContatosSelectListCurso"></select>   
+                <span asp-validation-for="NomeCurso" class="text-danger"></span>
+            </div>            
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

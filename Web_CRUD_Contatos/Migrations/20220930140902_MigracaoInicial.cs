@@ -4,13 +4,12 @@
 
 namespace Web_CRUD_Contatos.Migrations
 {
-    public partial class Inicialcriacao : Migration
+    public partial class MigracaoInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            
             migrationBuilder.CreateTable(
-                name: "Contato",
+                name: "Curso",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -21,14 +20,14 @@ namespace Web_CRUD_Contatos.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Contato", x => x.id);
+                    table.PrimaryKey("PK_Curso", x => x.id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Contato");
+                name: "Curso");
         }
     }
 }
