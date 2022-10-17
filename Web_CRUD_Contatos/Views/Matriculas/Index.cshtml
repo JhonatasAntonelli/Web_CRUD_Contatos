@@ -3,13 +3,13 @@
 @{
     ViewData["Title"] = "Realizar uma matricula";
 }
-<h1>LIsta de alunos e cursos</h1>
+<h1>Lista de alunos matriculados</h1>
 
 
 <h1></h1>
 
 <p>    
-    <a asp-action="Create">Matricular um aluno</a>
+    <a class="btn btn-success" asp-action="Create">Matricular um aluno</a>
 </p>
 <table class="table" id="table-matriculas">
     <thead>
@@ -39,9 +39,8 @@
                 @Html.DisplayFor(modelItem => item.NomeCurso)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.id">Editar</a>                 
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Apagar</a>
             </td>
         </tr>
 }

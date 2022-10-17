@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Web_CRUD_Contatos.Models.Contato>
 
 @{
-    ViewData["Title"] = "Minha Lista de Contatos";
+    ViewData["Title"] = "Lista de Alunos";
 }
-<h1>Minha Lista de Contatos</h1>
+<h1>Lista de Alunos</h1>
 
 @if (TempData["MessagemSucessoAdd"] != null)
 {
@@ -12,7 +12,9 @@
         @TempData["MessagemSucessoAdd"]
     </div>
 }
-
+<p>   
+    <a class="btn btn-success" asp-action="Create">Adicionar um novo aluno</a>    
+</p>
 
 <table class="table" id = "table-contatos">
     <thead>
@@ -42,8 +44,8 @@
                 @Html.DisplayFor(modelItem => item.DataNascimento)
             </td>
             <td>              
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.id">Edit</a>                 
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Del</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.id">Editar</a>                 
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Apagar</a>
             </td>
         </tr>
 }
@@ -51,7 +53,3 @@
 </table>
 
 
-
-<p>   
-    <a class="btn btn-success" asp-action="Create">Add Item</a>    
-</p>

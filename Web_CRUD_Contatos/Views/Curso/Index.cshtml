@@ -1,9 +1,13 @@
 ﻿@model IEnumerable<Web_CRUD_Contatos.Models.Curso>
 
 @{
-    ViewData["Title"] = "Minha Lista de Cursos";
+    ViewData["Title"] = "Lista de Cursos";
 }
-<h1>Minha Lista de Cursos</h1>
+<h1>Lista de Cursos</h1>
+
+<p>    
+    <a class="btn btn-success" asp-action="Create">Adicionar um novo curso</a>    
+</p>
 
 
 <table class="table" id="table-cursos">
@@ -34,14 +38,11 @@
                 @Html.DisplayFor(modelItem => item.DataNascimento)
             </td>
             <td>              
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.id">Edit</a>                 
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Del</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.id">Editar</a>                 
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Apagar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
 
-<p>    
-    <a class="btn btn-success" asp-action="Create">Add Item</a>    
-</p>

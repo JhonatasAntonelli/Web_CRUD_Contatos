@@ -5,7 +5,7 @@
 }
 
 
-<h1>Create</h1>
+<h1>Adicionar um novo aluno</h1>
  @if (TempData["MessagemErrorCPF"] != null)
     {
     <div class="alert alert-danger" role="alert">
@@ -14,7 +14,7 @@
     </div>
     }
 
-<h4>Contato</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -30,16 +30,16 @@
                 <label asp-for="CPF" class="control-label"></label>
                 <input asp-for="CPF" class="form-control"placeholder="CPF ex: 04568083911" />
                 <span asp-validation-for="CPF" class="text-danger"></span>
-            </div>
+            </div>            
             <br />
             <div class="form-group">
                 <label asp-for="DataNascimento" class="control-label"></label>
-                <input asp-for="DataNascimento" class="form-control" placeholder="Data de Nascimento ex: 01/01/2022"/>                
+                <input asp-for="DataNascimento" type="date" class="form-control"/>                
                 <span asp-validation-for="DataNascimento" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <br />
-                <input type="submit" value="Create" class="btn btn-primary" onclick="IsCpf(CPF)"/>                
+                <input type="submit" value="Adicionar" class="btn btn-primary" onclick="IsCpf(CPF)"/>                
                 <a class="btn btn-secondary" asp-controller="Contatos" asp-action="Index">Voltar</a>
         </form> 
     </div>

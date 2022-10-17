@@ -59,9 +59,10 @@ namespace Web_CRUD_Contatos.Controllers
 
              foreach (var contatos in _context.Contato)
              {
-                 matriculas.ContatosSelectListNome.Add(new SelectListItem { Text =  contatos.Nome});
+                matriculas.ContatosSelectListCPF.Add(new SelectListItem { Text = contatos.CPF });
 
-                 matriculas.ContatosSelectListCPF.Add(new SelectListItem { Text = contatos.CPF });
+                matriculas.ContatosSelectListNome.Add(new SelectListItem { Text =  contatos.Nome});
+                
              }
 
              foreach (var cursos in _context.Curso)
